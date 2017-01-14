@@ -21,11 +21,11 @@ colors = mpl.cm.rainbow(np.linspace(0, 1, k))
 plt.figure(0)
 plt.xlabel('Iteration') 
 plt.ylabel('Distortion')
-plt.title('Kmeans: distortion vs iteration')
+plt.title('Kmeans: distortion vs iteration (toy dataset')
 
 plt.figure(1)
 plt.figure(1).subplots_adjust(hspace=1)
-plt.title('Kmeans Clustering')
+plt.title('Kmeans Clustering (toy dataset)')
 
 
 for i in range (0,20):
@@ -44,10 +44,10 @@ for i in range (0,20):
 	plt.plot(distortion_function)
 
 plt.figure(0)
-plt.savefig('KmeansDistortion.png')
+plt.savefig('ToyKmeansDistortion.png')
 
 plt.figure(1)
-plt.savefig('KmeansClusters.png')
+plt.savefig('ToyKmeansClusters.png')
 
 
 # For each run of the kmeans++ algorithm:
@@ -57,11 +57,11 @@ plt.savefig('KmeansClusters.png')
 plt.figure(2)
 plt.xlabel('Iteration')
 plt.ylabel('Distortion')
-plt.title('Kmeans++: distortion vs iteration')
+plt.title('Kmeans++: distortion vs iteration (toy dataset)')
 
 for i in range (0,20):
 
         clusters,distortion_function = kmplus.kmeansplus(toy_data,k)
         plt.plot(distortion_function)
 
-plt.savefig('Kmeans++Distortion.png')
+plt.savefig('ToyKmeans++Distortion.png')
