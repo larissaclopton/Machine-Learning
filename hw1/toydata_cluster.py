@@ -21,12 +21,11 @@ colors = mpl.cm.rainbow(np.linspace(0, 1, k))
 plt.figure(0)
 plt.xlabel('Iteration') 
 plt.ylabel('Distortion')
-plt.title('Kmeans: distortion vs iteration (toy dataset')
+plt.title('Kmeans: distortion vs iteration (toy dataset)')
 
 plt.figure(1)
 plt.figure(1).subplots_adjust(hspace=1)
 plt.title('Kmeans Clustering (toy dataset)')
-
 
 for i in range (0,20):
 
