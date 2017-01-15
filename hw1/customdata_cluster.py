@@ -12,13 +12,14 @@ import random
 k = 7
 
 # create k points (centers) that are uniformly distributed
-centers = [(random.uniform(0,100),random.uniform(0,100)) for i in range(k)]
+centers = np.array([(random.uniform(0,100),random.uniform(0,100)) for i in range(k)])
 
 min_distances = [0]*k
 for index in range(len(centers)):
 
 	# remove current center from list
-	curr_center = centers.pop(0)
+	curr_center = centers[0]
+	np.delete(centers,0)
 		
 	# find closest center to curr_center
 	closest_center = min([(i[0], np.linalg.norm(curr_center-centers[i[0]])) \
@@ -29,7 +30,7 @@ for index in range(len(centers)):
 	min_dist = np.linalg.norm(curr_center-centers[closest_center]) 
 
 	# put current center back in list
-        centers.append(curr_center)
+        np.append(centers,curr_center)
 
 	min_distances[index] = min_dist
 
@@ -56,8 +57,8 @@ for index,min_dist in enumerate(min_distances):
 		# random radius
 		rad = r*random.random()
 		# coordinates
-		x = r*math.cos(theta)+xcenter
-		y = r*math.sin(theta)+ycenter
+		x = r*np.cos(theta)+xcenter
+		y = r*np.sin(theta)+ycenter
 
 		try:
 			points.append((x,y))
@@ -69,6 +70,8 @@ for index,min_dist in enumerate(min_distances):
 data = np.array(custom_data)
 
 plt.figure(0)
+plt.xlim(0,5)
+plt.ylim(0,80000)
 plt.xlabel('Iteration')
 plt.ylabel('Distortion')
 plt.title('Kmeans: distortion vs iteration (custom dataset)')
@@ -84,6 +87,8 @@ plt.figure(0)
 plt.savefig('CustomKmeansDistortion.png')
 
 plt.figure(1)
+plt.xlim(0,5)
+plt.ylim(0,8000)
 plt.xlabel('Iteration')
 plt.ylabel('Distortion')
 plt.title('Kmeans++: distortion vs iteration (custom dataset)')

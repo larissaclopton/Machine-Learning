@@ -61,5 +61,5 @@ def build_clusters(dataset, k, centers, clusters):
 def has_converged(centers, centers_buff):
 
 	# algorithm has converged when centers do not change
-	return (set([tuple(a) for a in centers]) == set([tuple(a) for a in centers_buff]))
+	return (set([tuple(a) for a in centers]) == set([tuple(b) for b in centers_buff]))
 
