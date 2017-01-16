@@ -14,46 +14,68 @@ with open('toydata.txt') as input:
 # For each run of the kmeans algorithm:
 # plot final result of clustering where point color indicates assignment
 # plot distortion function as function of iteration
-# COMMENT on the distortion function plot
 
 colors = mpl.cm.rainbow(np.linspace(0, 1, k))
 
 plt.figure(0)
-plt.xlabel('Iteration') 
+plt.figure(0).subplots_adjust(hspace=0.5)
+plt.title('Kmeans Clustering (toy dataset)')
+
+plt.figure(1)
+plt.figure(1).subplots_adjust(hspace=0.5)
+plt.title('Kmeans Clustering (toy dataset)')
+
+plt.figure(2)
+plt.figure(2).subplots_adjust(hspace=0.5)
+plt.title('Kmeans Clustering (toy dataset)')
+
+plt.figure(3)
+plt.figure(3).subplots_adjust(hspace=0.5)
+plt.title('Kmeans Clustering (toy dataset)')
+
+plt.figure(4)
+plt.figure(4).subplots_adjust(hspace=0.5)
+plt.title('Kmeans Clustering (toy dataset)')
+
+plt.figure(5)
+plt.xlabel('Iteration')
 plt.ylabel('Distortion')
 plt.title('Kmeans: distortion vs iteration (toy dataset)')
 
-plt.figure(1)
-plt.figure(1).subplots_adjust(hspace=1)
-plt.title('Kmeans Clustering (toy dataset)')
-
-for i in range (0,20):
+for i in range(0,20):
 
 	clusters,distortion_function = km.kmeans(toy_data,k)
 
-	plt.figure(1)
-	plt.subplot(4,5,i+1)
-        plt.title('Trail (%d)' % (i+1))	
+	plt.figure(i/4)
+	plt.subplot(2,2,i%4+1)
+        plt.title('Trial (%d)' % (i+1))	
 
 	for index, cluster in enumerate(clusters):
 		plt.scatter(*zip(*cluster),color = colors[index])
 	
 	# plot index (iteration) against value (distortion)
-	plt.figure(0)
+	plt.figure(5)
 	plt.plot(distortion_function)
 
-plt.figure(0)
+plt.figure(5)
 plt.savefig('ToyKmeansDistortion.png')
 
-plt.figure(1)
-plt.savefig('ToyKmeansClusters.png')
+plt.figure(0)
+plt.savefig('ToyKmeansClusters1_4.png')
 
+plt.figure(1)
+plt.savefig('ToyKmeansClusters5_8.png')
+plt.figure(2)
+plt.savefig('ToyKmeansClusters9_12.png')
+plt.figure(3)
+plt.savefig('ToyKmeansClusters13_16.png')
+plt.figure(4)
+plt.savefig('ToyKmeansClusters17_20.png')
 
 # For each run of the kmeans++ algorithm:
 # plot distortion function as function of iteration
-# COMMENT on convergence of kmeans++ vs kmeans
 
-plt.figure(2)
+plt.figure(6)
 plt.xlabel('Iteration')
 plt.ylabel('Distortion')
 plt.title('Kmeans++: distortion vs iteration (toy dataset)')
