@@ -1,7 +1,10 @@
-import numpy as np
-import random
+# Larissa Clopton
+# CMSC 25400
 
 # A python implementation of the kmeans algorithm
+
+import numpy as np
+import random
 
 def kmeans(dataset, k, init_centers=None):
 
@@ -44,15 +47,15 @@ def build_clusters(dataset, k, centers, clusters):
 
 	for point in dataset:
 		# find closest center
-		best_mu = min([(i[0], np.linalg.norm(point-centers[i[0]])) \
+		closest_index = min([(i[0], np.linalg.norm(point-centers[i[0]])) \
 							for i in enumerate(centers)], \
 							key=lambda t:t[1])[0]
 		try:
-			clusters[best_mu].append(point)
+			clusters[closest_index].append(point)
 		except KeyError:
-			clusters[best_mu] = [point]
+			clusters[closest_index] = [point]
 
-		distortion += np.linalg.norm(point-centers[best_mu],ord=2)**2
+		distortion += np.linalg.norm(point-centers[closest_index],ord=2)**2
 
 
 	return (clusters,distortion)

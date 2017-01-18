@@ -1,3 +1,6 @@
+# Larissa Clopton
+# CMSC 25400
+
 # A python implementation of the k-means++ algorithm,
 # an augmented version of the k-means algorithm
 

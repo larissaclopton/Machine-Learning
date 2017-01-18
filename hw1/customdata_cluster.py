@@ -1,3 +1,10 @@
+# Larissa Clopton
+# CMSC 25400
+
+""" NOTE: This code does not always run, I'm still trying to fix the bug.
+    It normally runs within a few attempts. When it does run, it produces
+    the expected result. """
+
 # Create a custom dataset for which kmeans++ improves kmeans 
 # by large factor in terms of distortion function
 

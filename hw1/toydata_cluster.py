@@ -1,3 +1,6 @@
+# Larissa Clopton
+# CMSC 25400
+
 import kmeans as km
 import kmeansplus as kmplus
 import numpy as np
