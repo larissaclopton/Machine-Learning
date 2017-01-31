@@ -69,9 +69,9 @@ def Isomap(dataset):
 	D = np.zeros((n,n))
 	D[:,:] = sys.maxint
 
-	# create squared distance matrix for k = 10 nearest neighbors
+	# create knn graph for k = 10 nearest neighbors
 	for i in range(n):
-		sq_distances = [np.linalg.norm(dataset[:,i] - dataset[:,j])**2 for j in range(n)]
+		sq_distances = [np.linalg.norm(dataset[:,i] - dataset[:,j]) for j in range(n)]
 		# sort to find closest k points
 		knn_index = (np.argsort(sq_distances))[:k+1]
 		# place these values in D
@@ -82,7 +82,7 @@ def Isomap(dataset):
 	D = np.minimum(D, np.transpose(D))
 
 	# use Floyd-Warshall algorithm for shortest paths	
-	G = shortest_paths(D)
+	G = np.square(shortest_paths(D))
 
 	# obtain the centered Gram matrix
 	P = np.eye(n) - np.ones((n,n))/n
